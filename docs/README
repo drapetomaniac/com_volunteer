@@ -1,0 +1,5 @@
+INSERT INTO jos_components (name, link, admin_menu_link,
+admin_menu_alt, `option`, admin_menu_img, params)
+VALUES ('Volunteer Match', 'option=com_volunteer',
+'option=com_volunteer', 'Volunteer Match', 'com_volunteer',
+'js/ThemeOffice/component.png', '');
