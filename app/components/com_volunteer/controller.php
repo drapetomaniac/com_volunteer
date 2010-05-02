@@ -101,9 +101,6 @@ function savecreative()
 				$body .= "E-mail: ";
 				$body .= $user->email . "\n";
 				$body .=  "\n";
-				$body .= "Skills: ";
-				$body .= $row->skills . "\n";
-				$body .=  "\n";
 				$body .= "Web: ";
 				$body .= $row->web . "\n";
 
@@ -237,7 +234,7 @@ function saveproject()
 				$mail = new JMail(); 
 				$mail->setSender($sender);
 				$mail->addBCC("rich.vazquez@gmail.com");
-//				$mail->addRecipient("contact@lightscamerahelp.org");				
+				$mail->addRecipient("contact@lightscamerahelp.org");				
 				$mail->addRecipient($user->email);	
 	//			die(var_dump($mail))			;
 				$mail->setSubject("[Project] " . $row->title );
