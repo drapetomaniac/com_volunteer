@@ -88,3 +88,6 @@ CREATE TABLE  `jos_volunteer_skills_creatives` (
   INDEX person(`person_id`)
 )
 CHARACTER SET utf8;
+
+
+ALTER TABLE `lights`.`jos_volunteer_project` ADD COLUMN `completed` TINYINT NOT NULL DEFAULT 0  AFTER `comments` , CHANGE COLUMN `project_title` `title` VARCHAR(255) NOT NULL  ;

@@ -1,0 +1,10 @@
+#dash-wrap{
+	
+}
+
+#creative-dash,#ngo-dash{
+	width:200px;
+	min-height:300px;	
+	float:left;	
+	padding:10px;
+}
