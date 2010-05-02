@@ -18,6 +18,9 @@ function display($tpl = null)
 	$base = JURI::base();    
 	$document->addCustomTag( '<script type="text/javascript" 	src="'.dirname($_SERVER['PHP_SELF']).'components'.DS.'com_volunteer'.DS.'includes'.DS.'volunteer.js"></script>' );
 	$document->addHeadLink($base."/components/com_volunteer/includes/volunteer.css", "stylesheet", "rel");
+	$document->addCustomTag( '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>' );
+	
+	$document->addHeadLink("http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/eggplant/jquery-ui.css", "stylesheet", "rel");
 
 
 	$task  = null;
@@ -106,6 +109,7 @@ function display($tpl = null)
 	$this->assignRef('project_title', $project->title);
 	$this->assignRef('project_mission', $project->mission);
 	$this->assignRef('project_comments', $project->comments);	
+	$this->assignRef('project_date_to_finish', $project->date_to_finish);		
 	$this->assignRef('project_ngo_id', $project->ngo_id);		
 	$this->assignRef('project_date_to_finish', $project->date_to_finish);		
 

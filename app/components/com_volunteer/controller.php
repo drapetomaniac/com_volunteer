@@ -57,15 +57,12 @@ function savecreative()
 						$query = "delete from #__volunteer_skills_creatives where person_id = " . $row->id;
 						$db->setQuery( $query ); 
 						$db->Execute($query) ;
-//						die($query);
-//					die(var_dump($db->getErrors()));  
-//	    			die(var_dump($postedskills));
+						
 						foreach ($postedskills as $skill)
 						{
 							$query = "insert into #__volunteer_skills_creatives (skill_id, person_id) VALUES (" . $skill . "," . $row->id .   ")";
 							$db->setQuery( $query ); 
 							$db->Execute($query) ;
-//								die($query);
 						}
 
 
@@ -198,14 +195,27 @@ function saveproject()
 		$post = JRequest::get('post');
 		$user =& JFactory::getUser();
 //die(print_r($_POST));	
-//die(print_r($user->email));
+//die(print_r($post));
 			$row =& JTable::getInstance('project', 'Table');
+
+			
+			
 			if (!$row->bind(JRequest::get('post')))
 			{
 				echo "<script> alert('".$row->getError()."');
 				window.history.go(-1); </script>\n";
 				exit();
 			}
+
+
+						$date =& JFactory::getDate($post['date_to_finish']);
+						$row->date_to_finish = $date->toMySQL();
+
+						// Append time if not added to publish date
+						if (strlen(trim($row->date_to_finish)) <= 10) {
+							$row->date_to_finish .= ' 00:00:00';
+						}
+			//die(print_r( $date->toMySQL() ));
 
 
 			if (!$row->store())	{

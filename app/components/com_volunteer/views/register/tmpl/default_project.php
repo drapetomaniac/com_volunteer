@@ -39,6 +39,15 @@
 		</td>
 	</tr>
 
+	<tr>
+		<td>
+			<strong>Finish Date:</strong>
+		</td>
+		<td>
+			<input class="text_area" type="text" name="date_to_finish" id="date_to_finish" value="<?php $datetofinish = explode(' ',$this->project_date_to_finish); echo $datetofinish[0]; ?>">
+		</td>
+	</tr>
+
 
 
 	</table>
@@ -53,3 +62,11 @@
 	<input type="submit" class="button" id="button" value="Submit">
 </form>
 
+
+
+
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery("#date_to_finish").datepicker();
+	});
+</script>
